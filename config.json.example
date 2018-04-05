@@ -1,0 +1,15 @@
+{
+  "job_list": [
+    {
+      "name": "job1",
+      "search terms": [
+        "software programmer",
+        "backend developer",
+      ],
+      "providers": [
+        "infojobs",
+      ],
+      sendmail: "example@mail.com",
+    }
+  ]
+}
