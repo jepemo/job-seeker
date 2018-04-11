@@ -19,3 +19,19 @@ class Provider(object):
 
     def search(self, terms):
         raise Exception("Not implemented")
+
+
+
+"""
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36',
+}
+r = requests.get(self.URL.format(params), headers=headers)
+
+print(r.text)
+
+soup = BeautifulSoup(r.text, 'html.parser')
+offer_list = soup.find(id="offer-list")
+for child in offer_list.children:
+    print(child)
+"""

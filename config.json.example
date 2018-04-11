@@ -1,15 +1,28 @@
 {
-  "job_list": [
-    {
-      "name": "job1",
-      "search terms": [
-        "software programmer",
-        "backend developer",
-      ],
-      "providers": [
-        "infojobs",
-      ],
-      sendmail: "example@mail.com",
+    "job_list": [
+        {
+          "name": "job1",
+          "search_terms": [
+            "software programmer",
+            "backend developer"
+          ],
+          "providers": [
+            "infojobs"
+          ],
+          "send_mail": "example@mail.com"
+        }
+    ],
+    "providers" : {
+            "infojobs" : {
+                "clientId" : "XXXXXX",
+                "client_secret": "YYYYYY"
+            }
+    },
+    "mail_info" : {
+        "smtp_from" : "xxx@frommail.com",
+        "smtp_host" : "smpt host",
+        "smtp_port" : smpt host,
+        "smtp_user" : "user",
+        "smtp_pass" : "pass"
     }
-  ]
 }

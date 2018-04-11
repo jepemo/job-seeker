@@ -15,6 +15,8 @@
 
 from jobseeker.providers.infojobs import InfojobsProvider
 
-providers = {
-    "infojobs": InfojobsProvider()
-}
+def create_providers(provider_data):
+    ij_data = provider_data["infojobs"]
+    return {
+        "infojobs": InfojobsProvider(ij_data["client_id"], ij_data["client_secret"])
+    }
