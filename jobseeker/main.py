@@ -79,27 +79,30 @@ def main():
 
     job_lists = config["job_list"]
 
-    while True:
-        for job_list in job_lists:
-            print("> Downloading offers for", job_list["name"])
-            for provider_name in job_list["providers"]:
-                print(">> For provider", provider_name)
-                provider = providers[provider_name]
-                for term in job_list["search_terms"]:
-                    print(">>> Searching", term)
-                    offers_result = provider.search(term)
-                    print(">>>>", len(offers_result), "results")
-                    offers.extend(offers_result)
-                    time.sleep(5)
+    try:
+        while True:
+            for job_list in job_lists:
+                print("> Downloading offers for", job_list["name"])
+                for provider_name in job_list["providers"]:
+                    print(">> For provider", provider_name)
+                    provider = providers[provider_name]
+                    for term in job_list["search_terms"]:
+                        print(">>> Searching", term)
+                        offers_result = provider.search(term)
+                        print(">>>>", len(offers_result), "results")
+                        offers.extend(offers_result)
+                        time.sleep(5)
 
-            new_offers = get_new_offers(offers)
+                new_offers = get_new_offers(offers)
 
-            if len(new_offers) > 0:
-                to_send = job_list["send_mail"]
-                print("> Send offers to", to_send)
-                send_offers(mail_info, to_send, new_offers)
-            else:
-                print("> Nothing to send...")
+                if len(new_offers) > 0:
+                    to_send = job_list["send_mail"]
+                    print("> Send offers to", to_send)
+                    send_offers(mail_info, to_send, new_offers)
+                else:
+                    print("> Nothing to send...")
 
-        print(">> Waiting....")
-        time.sleep(300)
+            print(">> Waiting....")
+            time.sleep(300)
+    except:
+        time.sleep(600)
